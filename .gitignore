@@ -1,0 +1,6 @@
+node_modules/
+bin/
+stills/
+*.mp4
+*.wav
+.DS_Store
