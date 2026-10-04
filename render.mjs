@@ -145,7 +145,7 @@ const server = http.createServer(async (req, res) => {
           return res.end('ok');
         }
         case '/still': {
-          const t = u.searchParams.get('t'), f = path.join(ROOT, 'stills', `t${t.padStart(6, '0')}.png`);
+          const t = u.searchParams.get('t'), f = path.join(ROOT, 'stills', `t${String(Math.round(parseFloat(t) * 1000)).padStart(7, '0')}.png`); // numeric sort
           fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, body); stills.push(f);
           return res.end('ok');
         }
